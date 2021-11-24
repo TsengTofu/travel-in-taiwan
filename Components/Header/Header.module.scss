@@ -1,11 +1,44 @@
 .headerWrapper {
   display: flex;
   background: #fff;
-}
-.navWrapper {
-  display: flex;
+  border-bottom: 1px solid #fafafa;
 }
 
-// 點點
-.activeDot {
+// 上方選單的部分
+.navWrapper {
+  display: flex;
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    padding: 8px;
+    margin: 0px 40px 0 0;
+    cursor: pointer;
+    p {
+      font-size: 18px;
+      letter-spacing: 0.2em;
+      margin: 0.4em 0px;
+    }
+    span {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+    }
+    &:before {
+      display: flex;
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #f1d675;
+      border-radius: 50%;
+      // 加上透明度
+      opacity: 0;
+    }
+    &:hover {
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
 }

@@ -9,6 +9,7 @@ const Carousel = (props) => {
     <>
       <div className={style.carouselWrapper}>
         <p>我是輪播元件</p>
+        {/* 這邊先做假的底圖 */}
         <Image
           src="/images/index_banners/banner_01.jpg"
           width="600"

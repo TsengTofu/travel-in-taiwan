@@ -1,0 +1,53 @@
+//  TODO  修正定位的問題
+
+// 最外層
+.indexWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.bannerBlock {
+}
+
+.exploreBlock {
+  position: relative;
+  height: 624px;
+}
+
+// 文字區塊
+.heading {
+  color: #737373;
+  width: 40%;
+  font-weight: normal;
+  letter-spacing: 0.15em;
+  position: absolute;
+}
+.category {
+  color: #769763;
+  font-size: 48px;
+  font-weight: 600;
+}
+.mainTitle {
+  font-size: 48px;
+  margin: 0px;
+}
+.description {
+  font-size: 18px;
+}
+
+.exploreList {
+}
+
+.explorePicContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  position: absolute;
+  right: -120px;
+  &:before {
+    display: block;
+    content: '';
+    width: 350px;
+    height: 100%;
+  }
+}

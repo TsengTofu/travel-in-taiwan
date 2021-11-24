@@ -1,0 +1,39 @@
+.searchbarWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 512px;
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 20px 30px;
+  // 加上 auto-prefix 的問題
+  box-shadow: 0px 4px 4px rgba(66, 66, 66, 0.05);
+}
+
+.inputWrapper {
+  display: flex;
+  width: calc(100% - 65px);
+  input {
+    border: none;
+    height: 30px;
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+.searchIcon {
+  display: flex;
+  margin: 0 20px 0 0;
+}
+
+.searchButton {
+  border-radius: 5px;
+  border: 1px solid #769763;
+  color: #769763; // 設定成主色調
+  background: none;
+  padding: 5px 10px;
+  font-weight: 450;
+  &:hover {
+    background: #769763;
+    color: #ffffff;
+  }
+}

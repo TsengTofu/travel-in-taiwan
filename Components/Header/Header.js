@@ -11,22 +11,18 @@ const Header = (props) => {
       />
       <ul className={style.navWrapper}>
         <li>
-          <div className={style.activeDot}></div>
           <p>找景點</p>
           <span>ATTRACTION</span>
         </li>
         <li>
-          <div className={style.activeDot}></div>
           <p>找美食</p>
           <span>DELICACY</span>
         </li>
         <li>
-          <div className={style.activeDot}></div>
           <p>找活動</p>
           <span>ACTIVITY</span>
         </li>
         <li>
-          <div className={style.activeDot}></div>
           <p>探索更多</p>
           <span>MORE</span>
         </li>

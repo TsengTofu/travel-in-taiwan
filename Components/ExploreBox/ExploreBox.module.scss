@@ -1,0 +1,28 @@
+.exploreBox {
+  display: flex;
+  margin: 0 16px 24px 0;
+  p {
+    width: 18px;
+    color: #737373;
+    margin: 0 0 0 4px;
+  }
+}
+
+.exploreBoxPicWrapper {
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.exploreBoxPic {
+  width: 200px;
+  height: 300px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: all 0.8s;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
