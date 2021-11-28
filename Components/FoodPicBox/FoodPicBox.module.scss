@@ -1,0 +1,13 @@
+.foodPicBoxWrapper{}
+
+.foodPicBox{
+  width: 273px;
+  height: 400px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: all 0.8s;
+  &:hover {
+    // transform: scale(1.2);
+  }
+}

@@ -1,17 +1,31 @@
-.searchbarWrapper {
+//  TODO  加上 auto-prefix 的問題
+%searchbarWrapper{
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  width: 512px;
+  width: 480px;
   background: #ffffff;
   border-radius: 5px;
-  padding: 20px 30px;
-  // 加上 auto-prefix 的問題
-  box-shadow: 0px 4px 4px rgba(66, 66, 66, 0.05);
+  padding: 15px 30px;
+}
+
+.searchbarWrapper {
+  @extend %searchbarWrapper;
+  max-height: 60px;
+  transition: max-height 0.15s ease-out;
+  overflow: hidden;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.active {
+  max-height: 315px;
+  transition: max-height 0.25s ease-in;
+  box-shadow: 0px 1px 4px #FFFFFF;
 }
 
 .inputWrapper {
   display: flex;
-  width: calc(100% - 65px);
+  width: 100%;
   input {
     border: none;
     height: 30px;
@@ -22,18 +36,77 @@
 
 .searchIcon {
   display: flex;
-  margin: 0 20px 0 0;
+  cursor: pointer;
+  background: none;
 }
 
-.searchButton {
-  border-radius: 5px;
-  border: 1px solid #769763;
-  color: #769763; // 設定成主色調
-  background: none;
-  padding: 5px 10px;
-  font-weight: 450;
-  &:hover {
-    background: #769763;
-    color: #ffffff;
+// 下方 toggle
+.toggleSearchBox{
+  span{
+    font-size: 14px;
+    color: #bdbdbd;
+  }
+}
+
+.fakeSpace{
+  border-bottom: 1px solid #ACACAC;
+  margin: 10px 0 24px 0;
+  opacity: 0;
+}
+
+.line{
+  border-bottom: 1px solid #ACACAC;
+  margin: 10px 0 24px 0;
+}
+
+.categoryList{
+  display: flex;
+  padding: 0px;
+  margin: 16px 0;
+  li{
+    margin: 0 16px 0 0;
+    position: relative;
+    label{
+      border-radius: 5px;
+      border: 1px solid #737373;
+      color: #737373; // 設定成主色調
+      padding: 4px 16px;
+      font-weight: 350;
+      cursor: pointer;
+      &:hover {
+        border: 1px solid #769763;
+        background: #769763;
+        color: #ffffff;
+      }
+    }
+    input[type="checkbox"]{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: -1;
+      &:checked{
+        +label{
+          border: 1px solid #769763;
+          background: #769763;
+          color: #ffffff;
+        }
+      } 
+    }
+  }
+}
+
+// 熱門關鍵字
+.hotKeyWordList{
+  padding: 0px;
+  margin: 8px 0;
+  color: #737373;
+  cursor: pointer;
+  li{
+    font-size: 16px;
+    letter-spacing: .1rem;
+    margin: 0 0 4px;
+    &:hover{
+      color: #769763;
+    }
   }
 }

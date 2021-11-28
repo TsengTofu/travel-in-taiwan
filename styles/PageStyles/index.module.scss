@@ -1,41 +1,57 @@
-//  TODO  修正定位的問題
+// 共用的部分
+%heading {
+  color: #737373;
+  width: 40%;
+  font-weight: normal;
+  letter-spacing: 0.15em;
+}
 
-// 最外層
 .indexWrapper {
   display: flex;
   flex-direction: column;
 }
 
 .bannerBlock {
+  position: relative;
+  height: 100%;
+}
+
+.searchBlock {
+  position: absolute;
+  left: calc((100% - 512px) / 2);
+  top: 40%;
 }
 
 .exploreBlock {
-  position: relative;
   height: 624px;
+  overflow: hidden;
+  margin: 88px 0px;
+  position: relative;
 }
 
 // 文字區塊
-.heading {
-  color: #737373;
-  width: 40%;
-  font-weight: normal;
-  letter-spacing: 0.15em;
+.exploreHeading {
+  @extend %heading;
   position: absolute;
+  left: 180px;
 }
 .category {
   color: #769763;
   font-size: 48px;
-  font-weight: 600;
+  font-weight: normal;
+  line-height: 65px;
+  margin: 0px;
 }
 .mainTitle {
   font-size: 48px;
-  margin: 0px;
+  font-weight: normal;
+  line-height: 70px;
+  margin: 0px 0px 16px;
 }
 .description {
-  font-size: 18px;
-}
-
-.exploreList {
+  font-size: 16px;
+  font-weight: 400;
+  width: 90%;
 }
 
 .explorePicContainer {
@@ -50,4 +66,54 @@
     width: 350px;
     height: 100%;
   }
+}
+
+// participateBlock
+.participateBlock {
+  display: flex;
+}
+
+.participateHeading {
+  @extend %heading;
+}
+
+.buttonList {
+  padding: 0px;
+  li {
+    cursor: pointer;
+    color: #737373;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    p {
+      margin: 0.5rem 0px;
+    }
+    &::before {
+      content: '';
+      display: block;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      background: #f1d675;
+      opacity: 0;
+      margin: 0 0.5rem 0 0;
+    }
+    &:hover {
+      color: #769763;
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+// enjoyBlock
+.enjoyBlock{}
+
+.enjoyHeading{
+  @extend %heading;
+}
+.foodPicContainer{
+  display: flex;
 }

@@ -17,6 +17,26 @@ app.prepare().then(() => {
   const router = new Router();
 
   // 先嘗試寫一個看看
+  //  FIXME  測試 google 資料是否能撈到
+  router.get('/test', async (ctx) => {
+    console.log(process.env.GOOGLE_MAP_API_KEY);
+    // language=zh-TW
+    var config = {
+      method: 'get',
+      url: `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?&input=台北&inputtype=textquery&fields=place_id&key=${process.env.GOOGLE_MAP_API_KEY}`,
+      headers: {},
+    };
+
+    const result = await axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error, '嗨我是錯誤');
+      });
+    ctx.body = result;
+  });
+
   // 取得所有觀光景點的資料
   router.get('/xxx', async (ctx) => {
     // axios 要新增一個 instance
