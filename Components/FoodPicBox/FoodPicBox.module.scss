@@ -1,13 +1,37 @@
-.foodPicBoxWrapper{}
-
 .foodPicBox{
   width: 273px;
   height: 400px;
+  color: #ffffff;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
   transition: all 0.8s;
-  &:hover {
-    // transform: scale(1.2);
+  .textBlock{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 2rem;
+    opacity: 0;
+    transition: all 0.8s;
+    h5{
+      font-size: 18px;
+    }
+    p{
+      font-size: 14px;
+      text-align: justify;
+    }
+  }
+  &:hover{
+    .textBlock{
+      opacity: 1;
+      background: rgba(0,0,0, .6);
+    }
   }
 }
+

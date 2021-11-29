@@ -71,6 +71,7 @@
 // participateBlock
 .participateBlock {
   display: flex;
+  background: #FAFAFA;
 }
 
 .participateHeading {
@@ -114,6 +115,35 @@
 .enjoyHeading{
   @extend %heading;
 }
-.foodPicContainer{
+
+// 單純就一堆食物的輪播
+.foodPicContainer{}
+
+// 訂閱區塊
+.subscribeBlock{
+  background: #769763;
   display: flex;
+  padding: 160px 0;
 }
+
+.leftSpotPic{}
+.subscribeHeading{
+  @extend %heading;
+  color: #ffffff;
+  .category{
+    color: #F1D675;
+  }
+}
+
+.emailInput{}
+.confirmButton{}
+
+//  TODO  直接搜索應該就找得到了
+.wrapper {
+  display: flex;
+  align-items: center;
+  &[status='open'] {
+    padding: 0 0 20px;
+  }
+}
+

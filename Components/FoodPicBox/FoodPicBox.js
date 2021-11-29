@@ -4,15 +4,17 @@ import style from './FoodPicBox.module.scss';
 const FoodPicBox = (props) => {
   const { foodData } = props;
   return (
-    <div className={style.foodPicBoxWrapper}>
-      {/*  TODO  先隨便放一張 */}
       <div
         style={{
           backgroundImage: `url(${foodData.pic_src})`,
         }}
         className={style.foodPicBox}
-      ></div>
-    </div>
+      >
+        <div className={style.textBlock}>
+          <h5>{foodData.pic_title}</h5>
+          <p>{foodData.pic_description}</p>
+        </div>
+      </div>
   );
 };
 

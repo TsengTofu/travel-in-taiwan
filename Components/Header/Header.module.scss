@@ -70,9 +70,25 @@
     margin: 0px 16px 0px 0px;
    &.favoriteButton{
      background-image: url('/images/icons/heart_outline_icon.svg');
+     &:hover{
+      background-image: url('/images/icons/heart_filled_icon.svg');
+     }
    }
    &.infoButton{
      background-image: url('/images/icons/faq_outline_icon.svg');
+     &:hover{
+      background-image: url('/images/icons/faq_filled_icon.svg');
+     }
    }
   }
+}
+
+
+.menuListWrapper{
+  width: 1200px;
+  margin: 0 auto;
+  // position: absolute;
+  // top: 98px;
+  // z-index: 2;
+  background: #fff;
 }
