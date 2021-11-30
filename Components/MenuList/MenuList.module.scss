@@ -1,0 +1,28 @@
+.mainCategory{
+  width: 50%;
+  &:nth-child(1), &:nth-child(2){
+    margin: 0 0 2rem;
+  }
+}
+
+.viceCategory{
+  width: 25%;
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p{
+    font-size: 14px;
+  }
+}
+
+.listButton{
+  display: flex;
+  width: 75%;
+  flex-wrap: wrap;
+  button{
+    margin: .2rem;
+  }
+}

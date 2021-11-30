@@ -45,10 +45,15 @@
       height: 8px;
       background: #f1d675;
       border-radius: 50%;
-      // 加上透明度
       opacity: 0;
     }
     &:hover {
+      color: #769763;
+      &:before {
+        opacity: 1;
+      }
+    }
+    &.active{
       color: #769763;
       &:before {
         opacity: 1;
@@ -87,8 +92,41 @@
 .menuListWrapper{
   width: 1200px;
   margin: 0 auto;
-  // position: absolute;
-  // top: 98px;
-  // z-index: 2;
-  background: #fff;
+  position: absolute;
+  top: 98px;
+  z-index: 2;
+  left: calc((100% - 1200px) / 2);
+  background: rgba(255, 255, 255, .9);
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+  max-height: 0px;
+  transition: max-height 0.25s ease-out;
+  ul{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 32px 160px;
+    li{
+      display: flex;
+      align-items: flex-start;
+      p{
+        margin: 0px;
+        color: #769763;
+      }
+      button{
+        display: flex;
+        align-items: center;
+        background: none;
+        color:#737373;
+        &:hover{
+          color: #769763;
+        }
+      }
+    }
+  }
+}
+
+.activeMenu{
+  max-height: 274px;
+  transition: max-height 0.25s ease-in;
 }

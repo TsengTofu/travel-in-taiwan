@@ -2,15 +2,16 @@
 import { useState } from 'react';
 import Image from 'next/image';
 // Component
-import MenuList from './MenuList/MenuList';
+import MenuList from '../MenuList/MenuList';
 import style from './Header.module.scss';
 const Header = (props) => {
   // 控制的 state
   const [isOpenNav, setIsOpenNav] = useState(true);
+  const [targetCategory, setTargetCategory] = useState(null);
   // 打開選單的控制項
   const onOpenNav = (category) => {
-    console.log('onClickShowNav', category);
     setIsOpenNav(true);
+    setTargetCategory(category);
   };
 
   return (
@@ -26,15 +27,24 @@ const Header = (props) => {
           />
         </div>
         <ul className={style.navWrapper}>
-          <li onMouseOver={() => {onOpenNav('ScenicSpot')}} onMouseOut={()=> {setIsOpenNav(false)}}>
+          <li
+            onMouseOver={() => {onOpenNav('ScenicSpot')}}
+            className={targetCategory === 'ScenicSpot' ? style.active : ''}
+          >
             <p>找景點</p>
             <span>ATTRACTION</span>
           </li>
-          <li onMouseOver={() => {onOpenNav('Restaurant')}} onMouseOut={()=> {setIsOpenNav(false)}}>
+          <li
+            onMouseOver={() => {onOpenNav('Restaurant')}}
+            className={targetCategory === 'Restaurant' ? style.active : ''}
+          >
             <p>找美食</p>
             <span>DELICACY</span>
           </li>
-          <li onMouseOver={() => {onOpenNav('Activity')}} onMouseOut={()=> {setIsOpenNav(false)}}>
+          <li
+            onMouseOver={() => {onOpenNav('Activity')}}
+            className={targetCategory === 'Activity' ? style.active : ''}
+          >
             <p>找活動</p>
             <span>ACTIVITY</span>
           </li>
@@ -45,12 +55,14 @@ const Header = (props) => {
         </ul>
       </div>
     </div>
-    {/*  TODO  這邊需要再思考一下怎麼弄會比較符合 UI 設計稿想要的  */}
-    {/* MenuList 長在這邊下面 */}
-    {isOpenNav && <div className={style.menuListWrapper}>
-      {/* 這邊下面要傳資料進去 */}
-      <MenuList />
-    </div>}
+    <div className={isOpenNav === true ? style.menuListWrapper + ' ' + style.activeMenu : style.menuListWrapper}>
+      {isOpenNav && targetCategory &&
+        <ul
+          onMouseLeave={()=> {setIsOpenNav(false), setTargetCategory(null)}}
+        >
+        <MenuList categoryStr={targetCategory} />
+      </ul>}
+    </div>
     </>
   );
 };
