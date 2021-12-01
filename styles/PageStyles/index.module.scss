@@ -1,6 +1,8 @@
+@import '../../styles/customVariable.scss';
 // 共用的部分
+//  TODO  之後要抽出來處理  
 %heading {
-  color: #737373;
+  color: $middleColor;
   width: 40%;
   font-weight: normal;
   letter-spacing: 0.15em;
@@ -8,6 +10,7 @@
 
 .indexWrapper {
   display: flex;
+  padding: 0px;
   flex-direction: column;
 }
 
@@ -23,9 +26,9 @@
 }
 
 .exploreBlock {
-  height: 624px;
+  height: 725px;
   overflow: hidden;
-  margin: 88px 0px;
+  margin: 10rem 0px;
   position: relative;
 }
 
@@ -36,7 +39,7 @@
   left: 180px;
 }
 .category {
-  color: #769763;
+  color: $primaryColor;
   font-size: 48px;
   font-weight: normal;
   line-height: 65px;
@@ -57,13 +60,13 @@
 .explorePicContainer {
   display: flex;
   flex-wrap: wrap;
-  width: 75%;
+  width: 100%;
   position: absolute;
-  right: -120px;
+  right: -250px;
   &:before {
     display: block;
     content: '';
-    width: 350px;
+    width: 495px;
     height: 100%;
   }
 }
@@ -72,22 +75,26 @@
 .participateBlock {
   display: flex;
   background: #FAFAFA;
+  padding: 10rem 0;
 }
 
 .participateHeading {
   @extend %heading;
+  padding: 0 0 0 2rem;
 }
 
 .buttonList {
   padding: 0px;
   li {
     cursor: pointer;
-    color: #737373;
+    color: $middleColor;
     display: flex;
     flex-direction: row;
     align-items: center;
+    border-bottom: 1px solid $primaryColor;
+    padding: .8rem 0;
     p {
-      margin: 0.5rem 0px;
+      margin: 0px;
     }
     &::before {
       content: '';
@@ -95,12 +102,12 @@
       border-radius: 50%;
       width: 10px;
       height: 10px;
-      background: #f1d675;
+      background: $secondaryColor;
       opacity: 0;
       margin: 0 0.5rem 0 0;
     }
     &:hover {
-      color: #769763;
+      color: $primaryColor;
       &::before {
         opacity: 1;
       }
@@ -110,10 +117,33 @@
 
 
 // enjoyBlock
-.enjoyBlock{}
+.enjoyBlock{
+  padding: 10rem 0;
+}
 
 .enjoyHeading{
   @extend %heading;
+  display: flex;
+  width: 100%;
+  padding: 0 180px;
+  margin: 0 0 40px;
+  h4{
+    margin: 0px;
+  }
+  p{
+    text-align: justify;
+  }
+}
+
+.enjoyLeft{
+  width: 50%;
+}
+
+.enjoyRight{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
 // 單純就一堆食物的輪播
@@ -121,17 +151,20 @@
 
 // 訂閱區塊
 .subscribeBlock{
-  background: #769763;
+  background: $primaryColor;
   display: flex;
-  padding: 160px 0;
+  width: 100%;
+  padding: 10rem 150px;
 }
 
 .leftSpotPic{}
 .subscribeHeading{
   @extend %heading;
   color: #ffffff;
+  width: calc(100% - 562px);
+  padding: 0 0 0 2rem;
   .category{
-    color: #F1D675;
+    color: $secondaryColor;
   }
 }
 

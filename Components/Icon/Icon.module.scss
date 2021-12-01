@@ -1,0 +1,39 @@
+// 針對 SVG 做控制
+@import '../../styles/customVariable.scss';
+.iconWrapper {
+  // Primary：灰 -> 綠
+  &[hoverTheme='primary'] {
+    svg {
+      path {
+        fill: $middleColor;
+      }
+    }
+  }
+  &:hover {
+    &[hoverTheme='primary'] {
+      svg {
+        path {
+          fill: $primaryColor;
+        }
+      }
+    }
+  }
+  // Secondary：灰 -> 深灰
+  &[hoverTheme='secondary'] {
+    svg {
+      path {
+        fill: $middleLightColor;
+      }
+    }
+  }
+  &:hover {
+    &[hoverTheme='secondary'] {
+      svg {
+        path {
+          fill: $middleColor;
+        }
+      }
+    }
+  }
+  // Third：不改變顏色 - 純綠
+}

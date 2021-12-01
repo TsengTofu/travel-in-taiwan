@@ -1,11 +1,24 @@
+@import '../../styles/customVariable.scss';
 .footerWrapper {
   background: #ffffff;
+  color: #ACACAC;
+  // color: $middleColor;
   display: flex;
   align-items: center;
 }
 
+// 這改起來還是很麻煩欸
 .socialMediaContainer {
   display: flex;
+  li{
+    &:hover{
+      svg{
+        path{
+          fill: red;
+        }
+      }
+    }
+  }
 }
 
 .languageOptionsWrapper {

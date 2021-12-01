@@ -7,6 +7,7 @@ import Searchbar from '../Components/Searchbar/Searchbar';
 import ExploreBox from '../Components/ExploreBox/ExploreBox';
 import SwitchPicBox from '../Components/SwitchPicBox/SwitchPicBox';
 import FoodPicBox from '../Components/FoodPicBox/FoodPicBox';
+import Button from '../Components/Button/Button';
 //  TODO  測試
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -60,7 +61,7 @@ export default function Home() {
   // Enjoy 區塊
 
   return (
-    <div className={style.indexWrapper}>
+    <div className={style.indexWrapper + ' container-fluid'}>
       <section className={style.bannerBlock}>
         <CarouselBanner />
         <div className={style.searchBlock}>
@@ -86,22 +87,7 @@ export default function Home() {
           <p className={style.description}>
             台灣擁有高山峽谷及四面環海地理特性，因此擁有各種自然景致等待人們發現，無論想要來場山林陶冶身心之旅，抑或體驗歷史人文的深度旅行，都可以在台灣這片土地上踏尋不同的風采。
           </p>
-          {/* Button */}
-          {/* TODO  這邊需要回頭修正  */}
-          <button
-            type="button"
-            // className={style.exploreButton}
-            className="btn btn-primary"
-          >
-            探索更多景色
-            {/* 這裡要加上一個 icon */}
-            <Image
-              src="/images/icons/arrow_icon.svg"
-              width="72"
-              height="24"
-              alt=""
-            />
-          </button>
+          <Button buttonStr="探索更多景色" />
         </div>
         {/*  FIXME  這邊是單單只有圖片的部分 */}
         <div className={style.explorePicContainer}>
@@ -112,9 +98,7 @@ export default function Home() {
       </section>
       {/* Participate 區塊 */}
       <section className={style.participateBlock}>
-        {/* 圖片 */}
         <div className={style.picContainer}>
-          {/*  TODO  拆成元件好了 */}
           <SwitchPicBox picSrc={showPicSrc} />
         </div>
         <div className={style.participateHeading}>
@@ -145,26 +129,16 @@ export default function Home() {
       {/* Enjoy 區塊 */}
       <section className={style.enjoyBlock}>
         <div className={style.enjoyHeading}>
-          <p className={style.category}>Enjoy</p>
-          <h4 className={style.mainTitle}>享受在地獨特風味</h4>
-          <p className={style.description}>
-            充斥在台灣大街小巷的在地美食，融合當地生活與文化特色，發展出各式各樣風味，從銅板小吃到精緻料理，數不清的美味讓你飽餐一頓。
-          </p>
-          {/* TODO  這邊需要回頭修正  */}
-          <button
-            type="button"
-            // className={style.exploreButton}
-            className="btn btn-primary"
-          >
-            享用更多美食
-            {/* 這裡要加上一個 icon */}
-            <Image
-              src="/images/icons/arrow_icon.svg"
-              width="72"
-              height="24"
-              alt=""
-            />
-          </button>
+          <div className={style.enjoyLeft}>
+            <p className={style.category}>Enjoy</p>
+            <h4 className={style.mainTitle}>享受在地獨特風味</h4>
+          </div>
+          <div className={style.enjoyRight}>
+            <p className={style.description}>
+              充斥在台灣大街小巷的在地美食，融合當地生活與文化特色，發展出各式各樣風味，從銅板小吃到精緻料理，數不清的美味讓你飽餐一頓。
+            </p>
+            <Button buttonStr="享用更多美食" />
+          </div>
         </div>
         {/* 下方輪播的部分 */}
         <div className={style.foodPicContainer}>
@@ -192,7 +166,7 @@ export default function Home() {
       {/* Subscribe 區塊 */}
       <section className={style.subscribeBlock}>
         <div className={style.leftSpotPic}>
-          <Image src="/images/index_subscribe/subscribe.jpeg" width="562" height="300" alt="" />
+          <Image src="/images/index_subscribe/subscribe.jpg" width="562" height="300" alt="" />
         </div>
         {/* 右半邊 */}
         <div className={style.subscribeHeading}>
@@ -214,9 +188,9 @@ export default function Home() {
       </section>
 
       {/*  TODO  測試的寫法，可以透過 HTML 傳遞 status 去控制樣式 */}
-      <div className={style.wrapper} status={isFocusSearchBox ? 'open' : ''}>
+      {/* <div className={style.wrapper} status={isFocusSearchBox ? 'open' : ''}>
         測試 HTML 跟 CSS 的變數關係
-      </div>
+      </div> */}
       {/* 這段之後要刪除 */}
     </div>
   );

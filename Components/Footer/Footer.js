@@ -1,4 +1,10 @@
 import Image from 'next/image';
+import Icon from '../Icon/Icon';
+// Icon Source
+//  FIXME  這邊是否可以封裝 
+import Facebook from '../../public/images/icons/social/facebook.svg';
+import Instagram from '../../public/images/icons/social/instagram.svg';
+import Youtube from '../../public/images/icons/social/youtube.svg';
 import style from './Footer.module.scss';
 const Footer = (props) => {
   return (
@@ -7,20 +13,22 @@ const Footer = (props) => {
       <ul className={style.socialMediaContainer}>
         <li>Follow Us</li>
         <li>
-          {/* 要做一個封裝 image 的元件嗎？ */}
-          Facebook
-          {/* <Image width="" height="" alt="" scr="" /> */}
+          <Icon hoverTheme="secondary">
+            <Facebook/>
+          </Icon>
         </li>
         <li>
-          Instagram
-          {/* <Image width="" height="" alt="" scr="" /> */}
+          <Icon hoverTheme="secondary">
+            <Instagram/>
+          </Icon>
         </li>
         <li>
-          Youtube
-          {/* <Image width="" height="" alt="" scr="" /> */}
+          <Icon hoverTheme="secondary">
+            <Youtube/>
+          </Icon>
         </li>
       </ul>
-      <p>Copyright © 2021 TRAVEL. All rights reserved.</p>
+      <p>Copyright © 2021 TRAVEL. All rights reserved. Design by Lola , Front Developed by Tofu Tseng.</p>
       {/* 語言切換 */}
       <ul className={style.languageOptionsWrapper}>
         <li>CH</li>

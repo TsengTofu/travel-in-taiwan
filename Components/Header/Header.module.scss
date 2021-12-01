@@ -1,9 +1,11 @@
+@import '../../styles/customVariable.scss';
+
 .headerWrapper {
   background: #fff;
   border-bottom: 1px solid #fafafa;
 }
 
-.headerContainer{
+.headerContainer {
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
@@ -11,7 +13,7 @@
   margin: 0 auto;
 }
 
-.logo{
+.logo {
   display: flex;
   cursor: pointer;
 }
@@ -20,7 +22,7 @@
   display: flex;
   margin: 0px;
   padding: 0px;
-  li {
+  > li {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,32 +31,68 @@
     padding: 8px;
     margin: 0px 80px 0 0;
     cursor: pointer;
-    p {
-      font-size: 16px;
-      letter-spacing: 0.2em;
-      margin: 0.4em 0px 0px;
-    }
-    span {
-      font-size: 12px;
-      letter-spacing: 0.1em;
-    }
     &:before {
       display: flex;
       content: '';
       width: 8px;
       height: 8px;
-      background: #f1d675;
+      background: $secondaryColor;
       border-radius: 50%;
       opacity: 0;
     }
+    > div {
+      &:nth-child(2) {
+        width: 1200px;
+        margin: 0 auto;
+        position: absolute;
+        top: 98px;
+        z-index: 2;
+        left: calc((100% - 1200px) / 2);
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 0 0 5px 5px;
+        overflow: hidden;
+        max-height: 0px;
+        transition: max-height 0.2s ease-in;
+        ul {
+          padding: 32px 160px;
+          display: flex;
+          width: 100%;
+          flex-wrap: wrap;
+          li {
+            display: flex;
+            align-items: flex-start;
+            p {
+              margin: 0px;
+              color: $primaryColor;
+            }
+            button {
+              display: flex;
+              align-items: center;
+              background: none;
+              color: $middleColor;
+              &:hover {
+                color: $primaryColor;
+              }
+            }
+          }
+        }
+      }
+    }
+
     &:hover {
-      color: #769763;
+      color: $primaryColor;
       &:before {
         opacity: 1;
       }
+      div {
+        &:nth-child(2) {
+          max-height: 274px;
+          transition: max-height 0.2s ease-out;
+        }
+      }
     }
-    &.active{
-      color: #769763;
+    &.active {
+      color: $primaryColor;
       &:before {
         opacity: 1;
       }
@@ -62,71 +100,44 @@
   }
 }
 
-.controlPanel{
+.navItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    margin: 0.4em 0px 0px;
+  }
+  span {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+}
+
+.controlPanel {
   display: flex;
   padding: 10px;
   margin: 0px;
-  li{
+  li {
     cursor: pointer;
     width: 30px;
     height: 30px;
     background-size: cover;
     background-position: center;
     margin: 0px 16px 0px 0px;
-   &.favoriteButton{
-     background-image: url('/images/icons/heart_outline_icon.svg');
-     &:hover{
-      background-image: url('/images/icons/heart_filled_icon.svg');
-     }
-   }
-   &.infoButton{
-     background-image: url('/images/icons/faq_outline_icon.svg');
-     &:hover{
-      background-image: url('/images/icons/faq_filled_icon.svg');
-     }
-   }
-  }
-}
-
-
-.menuListWrapper{
-  width: 1200px;
-  margin: 0 auto;
-  position: absolute;
-  top: 98px;
-  z-index: 2;
-  left: calc((100% - 1200px) / 2);
-  background: rgba(255, 255, 255, .9);
-  border-radius: 0 0 5px 5px;
-  overflow: hidden;
-  max-height: 0px;
-  transition: max-height 0.25s ease-out;
-  ul{
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    padding: 32px 160px;
-    li{
-      display: flex;
-      align-items: flex-start;
-      p{
-        margin: 0px;
-        color: #769763;
+    &.favoriteButton {
+      background-image: url('/images/icons/heart_outline_icon.svg');
+      &:hover {
+        background-image: url('/images/icons/heart_filled_icon.svg');
       }
-      button{
-        display: flex;
-        align-items: center;
-        background: none;
-        color:#737373;
-        &:hover{
-          color: #769763;
-        }
+    }
+    &.infoButton {
+      background-image: url('/images/icons/faq_outline_icon.svg');
+      &:hover {
+        background-image: url('/images/icons/faq_filled_icon.svg');
       }
     }
   }
-}
-
-.activeMenu{
-  max-height: 274px;
-  transition: max-height 0.25s ease-in;
 }

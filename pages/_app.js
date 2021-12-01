@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import '../styles/reset.scss';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import '../styles/bootstrap.scss';
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
