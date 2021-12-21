@@ -25,6 +25,12 @@
   top: 40%;
 }
 
+.mainHeading{
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 500;
+}
+
 .exploreBlock {
   height: 725px;
   overflow: hidden;
@@ -143,7 +149,7 @@
   width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
 }
 
 // 單純就一堆食物的輪播

@@ -2,7 +2,7 @@
 @import '../../styles/customVariable.scss';
 .iconWrapper {
   // Primary：灰 -> 綠
-  &[hoverTheme='primary'] {
+  &[hovertheme='primary'] {
     svg {
       path {
         fill: $middleColor;
@@ -10,7 +10,7 @@
     }
   }
   &:hover {
-    &[hoverTheme='primary'] {
+    &[hovertheme='primary'] {
       svg {
         path {
           fill: $primaryColor;
@@ -19,7 +19,7 @@
     }
   }
   // Secondary：灰 -> 深灰
-  &[hoverTheme='secondary'] {
+  &[hovertheme='secondary'] {
     svg {
       path {
         fill: $middleLightColor;
@@ -27,7 +27,7 @@
     }
   }
   &:hover {
-    &[hoverTheme='secondary'] {
+    &[hovertheme='secondary'] {
       svg {
         path {
           fill: $middleColor;

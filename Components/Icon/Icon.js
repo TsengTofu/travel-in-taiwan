@@ -1,9 +1,9 @@
 import style from './Icon.module.scss';
 
 const Icon = (props) => {
-  const { hoverTheme } = props;
+  const { hovertheme } = props;
   return (
-    <div className={style.iconWrapper} hoverTheme={hoverTheme}>
+    <div className={style.iconWrapper} hovertheme={hovertheme}>
       {props.children}
     </div>
   );

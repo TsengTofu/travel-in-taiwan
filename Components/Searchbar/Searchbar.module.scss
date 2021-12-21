@@ -7,7 +7,7 @@
   width: 480px;
   background: #ffffff;
   border-radius: 5px;
-  padding: 15px 30px;
+  padding:  8px;
 }
 
 .searchbarWrapper {
@@ -27,11 +27,23 @@
 .inputWrapper {
   display: flex;
   width: 100%;
+  padding: 8px;
+  &[status='error']{
+    background: #FFFAE8;
+    input {
+      background: #FFFAE8;
+      &::placeholder {
+        color: #C7AB48;
+      }
+    }
+  }
   input {
     border: none;
     height: 30px;
     width: 100%;
     font-size: 16px;
+    line-height: 24px;
+    padding: 0 0 0 8px;
   }
 }
 
@@ -47,6 +59,10 @@
     font-size: 14px;
     color: #bdbdbd;
   }
+}
+
+.toggleSearchbarWrapper{
+  padding: 0px 16px 16px;
 }
 
 .fakeSpace{
@@ -76,8 +92,7 @@
       cursor: pointer;
       &:hover {
         border: 1px solid $primaryColor;
-        background: $primaryColor;
-        color: #ffffff;
+        color: $primaryColor;
       }
     }
     input[type="checkbox"]{

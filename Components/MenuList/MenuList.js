@@ -7,9 +7,12 @@ const MenuList = (props) => {
   const { category } = categoryDetail;
   return (
     <>
-      {category.map((item) => {
+      {category.map((item, categoryIndex) => {
         return (
-          <li className={item.list ? style.mainCategory : style.viceCategory}>
+          <li
+            className={item.list ? style.mainCategory : style.viceCategory}
+            key={`mainCategory_${categoryIndex}`}
+          >
             {item.list ? (
               <div className={style.title}>
                 {item.icon_src}
@@ -22,8 +25,8 @@ const MenuList = (props) => {
               </button>
             )}
             {item.list && <div className={style.listButton}>
-              {item.list.map((element) => {
-                  return <button type="button">{element}</button>;
+              {item.list.map((element, index) => {
+                  return <button type="button" key={`menuButton_${index}`}>{element}</button>;
               })}
             </div>}
           </li>

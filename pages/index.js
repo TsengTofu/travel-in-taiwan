@@ -32,15 +32,35 @@ import foodPicConfig from '../Components/FoodPicBox/Config/foodPicConfig';
 import style from '../styles/PageStyles/index.module.scss';
 export default function Home() {
   // State
-  const [isFocusSearchBox, setIsFocusSearchBox] = useState(false);
-  // 已選擇要搜索的關鍵字
+  const [isFocusSearchBox, setIsFocusSearchBox] = useState(true);
+  // 已選擇要搜索的關鍵字，這邊要改成單選，可以先保留邏輯，後面還有多選
   const [checkedList, setCheckedList] = useState([]);
-  // 使用者自己 key 的關鍵字
+  // 使用者自己 key 的關鍵字，要處理空白鍵
   const [searchTextStr, setSearchTextStr] = useState('');
   // 要傳入給 participate 的圖片資源，須先設定一個 config
   const [showPicSrc, setShowPicSrc] = useState(
     participatePicConfig.default.pic_src
   );
+  //  TODO  處理最後打 API 的關鍵字
+  const [searchCondition, setSearchCondition] = useState({});
+  const [isErrorMessage, setIsErrorMessage] = useState(false);
+  // 處理錯誤訊息
+  const onClickSearchButton = () => {
+    // searchTextStr
+    const searchStrRegex = /^[A-Za-z\u4e00-\u9fa5_ ]+$/;
+    const isValid = searchStrRegex.test(searchTextStr);
+    if(searchTextStr === '' || !isValid){
+      setIsErrorMessage(true);
+      return;
+    }
+
+    // 接著處理空白鍵的關鍵字
+    const tempSearchCondition = {}; 
+    setSearchCondition();
+    // 接著把參數帶到網址
+    
+
+  };
 
   // 觸發打開 Searchbox 的元件
   const onOpenSearchBox = () => {
@@ -59,21 +79,24 @@ export default function Home() {
   };
 
   // Enjoy 區塊
-
   return (
     <div className={style.indexWrapper + ' container-fluid'}>
       <section className={style.bannerBlock}>
         <CarouselBanner />
         <div className={style.searchBlock}>
+          <p className={style.mainHeading}>遠離日常喧囂<br/>讓旅行豐富你的生活</p>
           <Searchbar
             // 傳入對應的 function，這先保留，不確定會不會用到
             checkedList={checkedList}
             isFocusSearchBox={isFocusSearchBox}
+            isErrorMessage={isErrorMessage}
             searchTextStr={searchTextStr}
             onFocus={onOpenSearchBox}
             onBlur={onCloseSearchBox}
+            onClickSearchButton={onClickSearchButton}
             setCheckedList={setCheckedList}
             setSearchTextStr={setSearchTextStr}
+            setIsErrorMessage={setIsErrorMessage}
           />
         </div>
       </section>
@@ -91,8 +114,8 @@ export default function Home() {
         </div>
         {/*  FIXME  這邊是單單只有圖片的部分 */}
         <div className={style.explorePicContainer}>
-          {explorePicConfig.map((exploreItem) => {
-            return <ExploreBox explorePicData={exploreItem} />;
+          {explorePicConfig.map((exploreItem, exploreIndex) => {
+            return <ExploreBox explorePicData={exploreItem} key={`exploreBox_${exploreIndex}`} />;
           })}
         </div>
       </section>
@@ -153,9 +176,9 @@ export default function Home() {
             }}
             className="mySwiper"
           >
-            {foodPicConfig.map((foodItem) => {
+            {foodPicConfig.map((foodItem, foodPicIndex) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={`foodItem_${foodPicIndex}`}>
                   <FoodPicBox foodData={foodItem} />
                 </SwiperSlide>
               );

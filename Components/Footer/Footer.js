@@ -13,17 +13,17 @@ const Footer = (props) => {
       <ul className={style.socialMediaContainer}>
         <li>Follow Us</li>
         <li>
-          <Icon hoverTheme="secondary">
+          <Icon hovertheme="secondary">
             <Facebook/>
           </Icon>
         </li>
         <li>
-          <Icon hoverTheme="secondary">
+          <Icon hovertheme="secondary">
             <Instagram/>
           </Icon>
         </li>
         <li>
-          <Icon hoverTheme="secondary">
+          <Icon hovertheme="secondary">
             <Youtube/>
           </Icon>
         </li>

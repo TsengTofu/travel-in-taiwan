@@ -11,13 +11,13 @@ const CarouselBanner = (props) => {
       <div className={style.carouselWrapper}>       
         <Carousel>
           {
-            carouselPicConfig.map((item)=>{
+            carouselPicConfig.map((item, carouselIndex)=>{
               return (
-              <Carousel.Item>
+              <Carousel.Item key={`carouselPic_${carouselIndex}`}>
                 <div style={{ backgroundImage: `url(${item.pic_src})`, backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '700px' }}></div>
                 <Carousel.Caption>
-                  <h3>{item.pic_description}</h3>
-                  <p>...</p>
+                  {/* <h3>{item.pic_description}</h3> */}
+                  {/* <p>...</p> */}
                 </Carousel.Caption>
               </Carousel.Item>
               );
