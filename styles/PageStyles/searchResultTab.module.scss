@@ -12,16 +12,16 @@
   >p{
     font-weight: 500;
     font-size: 28px;
+    margin: 0px;
   }
 }
 
 // 搜尋區塊相關的內容
 .searchDetailContainer{
   display: flex;
-  align-items: center;
   justify-content: space-between;
   position: relative;
-  width: 70%;
+  width: 72%;
 }
 
 .inputBlock{
@@ -34,6 +34,8 @@
     &::placeholder {
       color: #ACACAC;
       font-size: 14px;
+      top: 12px;
+      position: absolute;
     }
   }
 }
@@ -56,9 +58,6 @@
 }
 
 .showChoice{
-  // &[status='open']{
-    // border-bottom: .5px solid #ACACAC;
-  // }
   padding: 0px 8px 8px;
   display: flex;
   align-items: center;
@@ -173,4 +172,44 @@
   color: #fff;
   font-size: 14px;
   border-radius: 5px;
+  padding: 0px 16px;
+  svg{
+    path{
+      fill: #fff;
+    }
+  }
+}
+
+
+// 切換 tab 選單
+.tabWrapper{
+  ul{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0px;
+    li{
+      color: #737373;
+      font-size: 20px;
+      font-weight: 500;
+      padding: 16px;
+      cursor: pointer;
+      border-bottom: 3px solid rgba(255, 255, 255, 0);
+      &:hover{
+        color: #769763;
+        border-bottom: 3px solid #769763;
+      }
+      &.activeCategoryTab{
+        color: #769763;
+        border-bottom: 3px solid #769763;
+      }
+    }
+  }
+}
+
+
+
+// 搜尋結果區塊
+.resultAndFilterWrapper{
+  background: #FAFAFA;
 }

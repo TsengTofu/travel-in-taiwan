@@ -1,0 +1,35 @@
+@import '../../styles/customVariable.scss';
+.categoryList{
+  display: flex;
+  padding: 0px;
+  margin: 16px 0;
+  li{
+    margin: 0 16px 0 0;
+    position: relative;
+    label{
+      border-radius: 5px;
+      border: 1px solid $middleColor;
+      color: $middleColor;
+      padding: 4px 16px;
+      font-weight: 350;
+      cursor: pointer;
+      &:hover {
+        border: 1px solid $primaryColor;
+        color: $primaryColor;
+      }
+    }
+    input[type="checkbox"]{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: -1;
+      &:checked{
+        +label{
+          border: 1px solid $primaryColor;
+          background: $primaryColor;
+          color: #ffffff;
+        }
+      } 
+    }
+  }
+}

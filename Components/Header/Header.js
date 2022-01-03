@@ -5,7 +5,7 @@ const Header = (props) => {
   return (
     <>
     <div className={style.headerWrapper}>
-      <div className={style.headerContainer}>
+      <div className={`container-lg ${style.headerContainer}`}>
         <div className={style.logo}>
           <Image
             src="/images/logo.svg"
